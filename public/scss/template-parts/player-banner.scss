@@ -1,0 +1,43 @@
+.player-banner {
+    overflow: hidden;
+    height: fluid(150, 300);
+
+    .image {
+        position: absolute;
+        width: 100%;
+        height: inherit;
+
+        img {
+            object-fit: cover;
+            object-position: center;
+            height: 100%;
+            width: 100%;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('/public/assets/img/texture.png');
+            mix-blend-mode: difference;
+        }
+    }
+
+
+    .wrapper {
+        position: relative;
+        height: 100%;
+        display: grid;
+        grid-template-columns: 0.25fr 0.75fr;
+    }
+
+    .player {
+        position: relative;
+        grid-column: 2;
+    }
+
+
+}
