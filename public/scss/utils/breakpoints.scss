@@ -1,0 +1,14 @@
+$breakpoints: (
+	'phone-xsmall': calc(320 / 16) * 1rem,
+	'phone-small': calc(425 / 16) * 1rem,
+	'phone-medium': calc(600 / 16) * 1rem,
+	'phone': calc(768 / 16) * 1rem,
+	'tablet': calc(1024 / 16) * 1rem,
+	'desktop-small': calc(1200 / 16) * 1rem,
+	'desktop-medium': calc(1440 / 16) * 1rem,
+	'desktop-mlarge': calc(1600 / 16) * 1rem,
+	'desktop-large': calc(1800 / 16) * 1rem,
+	'desktop-xlarge': calc(1920 / 16) * 1rem,
+	'desktop-max': calc(2000 / 16) * 1rem);
+
+@forward 'include-media/dist/include-media'with ($breakpoints: $breakpoints);

@@ -1,0 +1,121 @@
+@use 'sass:list';
+@use 'sass:math';
+@use 'sass:map';
+@use 'breakpoints' as *;
+
+// The base value for rem calculations
+$rem-base: 16px;
+
+// Strip the unit from a number
+@function strip-unit($number) {
+	@if type-of($number)=="number"and not unitless($number) {
+		@return math.div($number, ($number * 0 + 1));
+	}
+
+	@return $number;
+}
+
+// Convert a pixel value to rem
+@function convert-to-rem($value, $base-value: $rem-base, $limit: true) {
+	@if abs($value) < 8 and $limit {
+		@return $value * 1px;
+	}
+
+	$value: math.div(strip-unit($value), strip-unit($base-value)) * 1rem;
+
+	@return $value;
+}
+
+// Convert a list of pixel values to rem
+@function rem($values, $limit: true, $base-value: $rem-base) {
+	$max: list.length($values);
+
+	@if $max==1 {
+		@return convert-to-rem(list.nth($values, 1), $base-value, $limit);
+	}
+
+	$rem-values: ();
+
+	@for $i from 1 through $max {
+		$rem-values: list.append($rem-values, convert-to-rem(list.nth($values, $i), $base-value));
+	}
+
+	@return $rem-values;
+}
+
+@function fluid($min-value, $max-value, $min-breakpoint: "phone-xsmall", $max-breakpoint: "desktop-medium") {
+	@if $min-value==0 {
+		$min-value: 0.001;
+	}
+
+	@if $max-value==0 {
+		$max-value: 0.001;
+	}
+
+	$min-vw: 0;
+	$max-vw: 0;
+
+	@if map-has-key($breakpoints, $min-breakpoint) {
+		$min-vw: map.get($breakpoints, $min-breakpoint);
+	}
+
+	@else {
+		$min-vw: calc($min-breakpoint / 16) * 1rem;
+	}
+
+	@if map-has-key($breakpoints, $max-breakpoint) {
+		$max-vw: map.get($breakpoints, $max-breakpoint);
+	}
+
+	@else {
+		$max-vw: calc($max-breakpoint / 16) * 1rem;
+	}
+
+	$base-min-value: rem($min-value, false);
+	$base-max-value: rem($max-value, false);
+	$u1: math.unit($min-vw);
+	$u2: math.unit($max-vw);
+	$u3: math.unit($base-min-value);
+	$u4: math.unit($base-max-value);
+
+	@if $u1==$u2 and $u1==$u3 and $u1==$u4 {
+		$fluid-base: calc(
+			#{$base-min-value} + #{(strip-unit($base-max-value) - strip-unit($base-min-value))} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}));
+
+		@if $min-value < $max-value {
+			@return min($fluid-base, rem($max-value));
+		}
+
+		@else {
+			@return clamp(rem($max-value), $fluid-base, rem($min-value));
+		}
+	}
+
+	@else {
+		@error 'Invalid fluid() declaration.';
+		@return 0;
+	}
+}
+
+// Alias for fluid() with a default max breakpoint of 'desktop-small'
+@function fluid-phone($min-value, $max-value) {
+	@return fluid($min-value, $max-value, "phone-xsmall", "desktop-small");
+}
+
+// Alias for fluid() with a default min breakpoint of 'tablet' and max breakpoint of 'desktop-small'
+@function fluid-tablet($min-value, $max-value) {
+	@return fluid($min-value, $max-value, "tablet", "desktop-small");
+}
+
+// Alias for fluid() with a default min breakpoint of 'desktop-small'
+@function fluid-desktop($min-value, $max-value) {
+	@return fluid($min-value, $max-value, "desktop-small");
+}
+
+@function remaining-side($wrapper-width, $value-only: false) {
+	@if ( $value-only ) {
+		@return calc( ( 1920 - $wrapper-width ) / 2 );
+	} @else {
+		@return calc((100% - #{rem-calc($wrapper-width)}) / 2);
+	}
+}

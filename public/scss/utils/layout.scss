@@ -1,0 +1,46 @@
+*,
+*:after,
+*:before {
+	box-sizing: inherit;
+}
+
+html {
+	box-sizing: border-box;
+	scroll-behavior: smooth;
+	background-color: $light;
+	// cursor: none;
+}
+
+body {
+	overflow-x: hidden;
+	font-family: $flink;
+	color: $dark;
+}
+
+p,
+span,
+div {
+	line-height: 1.4;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	line-height: 1;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+button {
+	background: none;
+	border: none;
+	color: inherit;
+	cursor: pointer;
+	font: inherit;
+	outline: none;
+}
+
+img {
+	max-width: 100%;
+}

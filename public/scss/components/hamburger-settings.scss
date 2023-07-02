@@ -1,0 +1,8 @@
+$hamburger-padding-x : 0;
+$hamburger-padding-y : 0;
+$hamburger-layer-width : 40px;
+$hamburger-layer-height : 2px;
+$hamburger-layer-color : $dark;
+$hamburger-hover-opacity : 1;
+
+@import "../../../node_modules/hamburgers/_sass/hamburgers/hamburgers";
