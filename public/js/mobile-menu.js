@@ -3,11 +3,11 @@ export function mobileMenu() {
 
   if (block) {
     const hamburger = block.querySelector(".hamburger");
-    // const menu = block.querySelector('.menu ul');
+    const menu = block.querySelector('.menu ul');
     
     hamburger.addEventListener("click", function() {
       hamburger.classList.toggle("is-active");
-      // menu.classList.toggle("active");
+      menu.classList.toggle("active");
     });
   }
 
