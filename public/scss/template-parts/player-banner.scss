@@ -1,6 +1,16 @@
 .player-banner {
+    position: relative;
     overflow: hidden;
-    height: fluid(150, 300);
+    height: fluid(150, 350);
+
+    &::after {
+        content: '';
+        width: 100%;
+        height: fluid(80, 160);
+        background-image: linear-gradient(to bottom, transparent, fade-out($dark, 0.4));
+        position: absolute;
+        bottom: 0;
+    }
 
     .image {
         position: absolute;
@@ -26,7 +36,6 @@
         }
     }
 
-
     .wrapper {
         position: relative;
         height: 100%;
@@ -34,9 +43,69 @@
         grid-template-columns: 0.25fr 0.75fr;
     }
 
-    .player {
-        position: relative;
+    .player-container {
         grid-column: 2;
+        position: relative;
+        display: flex;
+        align-items: flex-end;
+        z-index: 9;
+        
+        .player {
+            padding-bottom: fluid(10, 40);
+            width: 100%;
+            display: grid;
+            grid-template-columns: auto 1fr;
+            align-items: center;
+            gap: fluid(10, 20);
+
+            .play {
+                height: fluid(40, 60);
+                width: fluid(40, 60);
+                border-radius: 50%;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                background-color: $orange;
+
+                ion-icon {
+                    color: $light;
+                    font-size: fluid(14, 22);
+                }
+            }
+
+            .grp {
+                width: inherit;
+                input[type='range'] {
+                    -webkit-appearance: none;
+                    appearance: none;
+                    width: inherit;
+                    height: rem(4);
+                    margin-right: rem(15);
+                    background: fade-out($light, 0.5);
+                    border-radius: rem(5);
+                    background-image: linear-gradient($light, $light);
+                    background-size: 50% 100%;
+                    background-repeat: no-repeat;
+
+                    &::-webkit-slider-thumb {
+                        -webkit-appearance: none;
+                        height: rem(16);
+                        width: rem(16);
+                        border-radius: 50%;
+                        background: $light;
+                        cursor: ew-resize;
+                    }
+                }
+
+                .timestamp {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: flex-start;
+                    color: $light;
+                    font-size: fluid(12, 14);
+                }
+            }
+        }
     }
 
 
