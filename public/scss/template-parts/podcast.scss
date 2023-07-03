@@ -1,0 +1,39 @@
+.podcast {
+    .wrapper {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: rem(10);
+    }
+
+    &-poster {
+        .image {
+
+        }
+
+        .author-info {
+            .avatar {
+                img {
+
+                }
+            }
+
+            h4 {
+
+            }
+
+            p {
+
+            }
+        }
+    }
+
+    &-contents {
+
+    }
+
+    &-details {
+
+    }
+
+
+}
