@@ -78,36 +78,7 @@
             }
 
             .range {
-                width: inherit;
-                input[type='range'] {
-                    -webkit-appearance: none;
-                    appearance: none;
-                    width: inherit;
-                    height: rem(4);
-                    margin-right: rem(15);
-                    background: fade-out($light, 0.5);
-                    border-radius: rem(5);
-                    background-image: linear-gradient($light, $light);
-                    background-size: 50% 100%;
-                    background-repeat: no-repeat;
-
-                    &::-webkit-slider-thumb {
-                        -webkit-appearance: none;
-                        height: rem(16);
-                        width: rem(16);
-                        border-radius: 50%;
-                        background: $light;
-                        cursor: ew-resize;
-                    }
-                }
-
-                .timestamp {
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: flex-start;
-                    color: $light;
-                    font-size: fluid(12, 14);
-                }
+                @include player($light, $light);
             }
         }
     }
