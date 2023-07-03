@@ -23,54 +23,23 @@
 	}
 }
 
-@mixin line-clamp($lines) {
-	display: -webkit-box;
-	-webkit-box-orient: vertical;
-	-webkit-line-clamp: #{$lines};
-	overflow: hidden;
-	text-overflow: ellipsis;
-}
-
-@mixin sequential-delay( $length, $delayAmount: 100ms, $child: '', $addedDelay: 0s) {
-	@for $x from 1 through $length {
-		&:nth-child( #{ $x } ) #{ $child } {
-			transition-delay: #{ ( $x - 1 ) * $delayAmount + $addedDelay };
-		}
-	}
-
-	&:nth-child( n + #{ $length + 1 } ) {
-		transition-delay: #{ $delayAmount * $length };
-	}
-}
-
 @mixin flex($justify, $align, $wrap) {
 	display: flex;
-	justify-content: $justify;
-	align-items: $align;
-	flex-wrap: $wrap;
-}
 
-@mixin marquee($duration: 20s, $direction: 'left', $value: 50%) {
-	@keyframes marquee {
-		to {
-			@if $direction=='left' {
-				transform: translateX((-$value));
-			}
-
-			@else {
-				transform: translateX($value);
-			}
-		}
+	@if $justify != null {
+		justify-content: $justify;
 	}
 
-	animation-name: marquee;
-	animation-duration: $duration;
-	animation-timing-function: linear;
-	animation-iteration-count: infinite;
-	white-space: nowrap;
+	@if $align != null {
+		align-items: $align;
+	}
+
+	@if $wrap != null {
+		flex-wrap: $wrap;
+	}
 }
 
-@mixin player($range-color, $timestamp-color) {
+@mixin range-input($range-color, $timestamp-color) {
 	width: inherit;
 
 	input[type='range'] {
@@ -96,9 +65,7 @@
 	}
 
 	.timestamp {
-		display: flex;
-		justify-content: space-between;
-		align-items: flex-start;
+		@include flex(space-between, flex-start, wrap);
 		color: $timestamp-color;
 		font-size: fluid(12, 14);
 	}

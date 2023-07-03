@@ -50,8 +50,7 @@
     .player-container {
         grid-column: 2;
         position: relative;
-        display: flex;
-        align-items: flex-end;
+        @include flex(null, flex-end, null);
         z-index: 9;
         
         .player {
@@ -66,9 +65,7 @@
                 height: fluid(40, 60);
                 width: fluid(40, 60);
                 border-radius: 50%;
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
+                @include flex(center, center, null);
                 background-color: $orange;
 
                 ion-icon {
@@ -78,7 +75,7 @@
             }
 
             .range {
-                @include player($light, $light);
+                @include range-input($light, $light);
             }
         }
     }

@@ -5,8 +5,7 @@
     .wrapper {}
 
     nav {
-        display: flex;
-        justify-content: space-between;
+        @include flex(space-between, center, wrap);
         gap: fluid(20, 40);
 
         .left, .right {
@@ -15,16 +14,13 @@
         }
         
         .logo {
-            display: flex;
-            align-items: center;
+            @include flex(null, center, nowrap);
             gap: rem(10);
             text-transform: uppercase;
             font-size: fluid(12, 14);
             
             .symbol {
-                display: flex;
-                align-items: center;
-                justify-content: center;
+                @include flex(center, center, nowrap);
                 width: fluid(20, 30);
                 height: fluid(20, 30);
                 border-radius: 50%;
@@ -38,8 +34,7 @@
         }
         
         .main-menu {
-            display: flex;
-            align-items: center;
+            @include flex(space-between, center, wrap);
             gap: fluid(20, 80);
             
             .menu-item {
