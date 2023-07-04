@@ -1,7 +1,7 @@
 .player-banner {
     position: relative;
     overflow: hidden;
-    height: fluid(150, 350);
+    height: fluid(150, 300);
 
     &::after {
         content: '';
@@ -40,7 +40,8 @@
         position: relative;
         height: 100%;
         display: grid;
-        grid-template-columns: 0.25fr 0.75fr;
+        grid-template-columns: 0.2fr 0.8fr;
+        gap: fluid(20, 60);
 
         @include media('<tablet') {
             grid-template-columns: 0.4fr 0.6fr;
