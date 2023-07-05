@@ -84,7 +84,7 @@
             }
 
             .range {
-                @include range-input($light, $light);
+                @include range-input($light, $light, fade-out($light, 0.65));
             }
         }
     }

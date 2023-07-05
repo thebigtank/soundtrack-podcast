@@ -29,6 +29,7 @@
             grid-column: unset;
             order: 1;
             padding: 0 fluid(20, 40);
+            margin-bottom: rem(30);
         }
 
         .image {
@@ -84,18 +85,19 @@
             margin-bottom: fluid(8, 10);
 
             img {
-                width: calc(100% - rem(5));
-                height: calc(100% - rem(5));
+                width: calc(100% - fluid(3, 5));
+                height: calc(100% - fluid(3, 5));
                 border-radius: 50%;
                 object-fit: cover;
-                border: 3px solid #fff;
+                border: fluid(2, 3) solid #fff;
             }
         }
 
         .grp {
             h4 {
+                font-size: fluid(13, 16);
                 font-weight: 500;
-                margin-bottom: fluid(8, 10);
+                margin-bottom: fluid(6, 10);
             }
 
             p {
@@ -139,6 +141,10 @@
                 font-weight: 500;
                 line-height: 1;
                 margin-bottom: fluid(16, 32);
+
+                @include media('<phone-medium') {
+                    margin-bottom: rem(26);
+                }
             }
         }
 
@@ -211,6 +217,16 @@
                         display: block;
                     }
                 }
+            }
+        }
+
+        .player {
+            .range {
+                @include range-input($orange, $dark, fade-out($dark, 0.85));
+            }
+
+            @include media('>phone-medium') {
+                display: none;
             }
         }
 

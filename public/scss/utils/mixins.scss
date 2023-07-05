@@ -39,16 +39,16 @@
 	}
 }
 
-@mixin range-input($range-color, $timestamp-color) {
+@mixin range-input($range-color, $timestamp-color, $range-fade) {
 	width: inherit;
 
 	input[type='range'] {
 		-webkit-appearance: none;
 		appearance: none;
-		width: inherit;
+		width: 100%;
 		height: rem(4);
 		margin-right: rem(15);
-		background: fade-out($light, 0.5);
+		background: $range-fade;
 		border-radius: rem(5);
 		background-image: linear-gradient($range-color, $range-color);
 		background-size: 50% 100%;
