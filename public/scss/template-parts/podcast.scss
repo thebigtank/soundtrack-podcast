@@ -223,6 +223,33 @@
         .player {
             .range {
                 @include range-input($orange, $dark, fade-out($dark, 0.85));
+                margin-bottom: rem(24);
+            }
+
+            .controls {
+                @include flex(center, center, nowrap);
+                gap: rem(6);
+
+                .btn {
+                    height: rem(50);
+                    width: rem(50);
+                    @include flex(center, center, nowrap);
+
+                    ion-icon {
+                        font-size: rem(18);
+                    }
+
+                    &.play {
+                        border-radius: 50%;
+                        @include flex(center, center, null);
+                        background-color: $orange;
+
+                        ion-icon {
+                            color: $light;
+                            font-size: rem(22);
+                        }
+                    }
+                }
             }
 
             @include media('>phone-medium') {
