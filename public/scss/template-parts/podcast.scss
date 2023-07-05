@@ -12,6 +12,7 @@
 
         @include media('<phone-medium') {
             grid-template-columns: 100%;
+            padding: 0;
         }
     }
 
@@ -27,6 +28,7 @@
             grid-row: unset;
             grid-column: unset;
             order: 1;
+            padding: 0 fluid(20, 40);
         }
 
         .image {
@@ -64,6 +66,12 @@
             grid-column: unset;
             margin-top: unset;
             order: 3;
+            padding: fluid(30, 20) fluid(20, 40);
+            background-color: $ghost-white;
+            margin-bottom: rem(30);
+            display: grid;
+            grid-template-columns: auto auto;
+            gap: 20px;
         }
 
         .avatar {
@@ -114,6 +122,8 @@
             grid-column: unset;
             padding-left: 0;
             order: 2;
+            padding: 0 fluid(20, 40);
+            margin-bottom: rem(30);
         }
 
         .heading {
@@ -221,6 +231,7 @@
             grid-column: unset;
             padding-left: 0;
             order: 4;
+            padding: 0 fluid(20, 40);
         }
 
         .social-share {
