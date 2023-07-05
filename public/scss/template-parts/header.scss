@@ -1,6 +1,13 @@
 .header {
     background-color: $light;
     padding: fluid(20, 30) 0;
+    position: fixed;
+    z-index: 2;
+    width: 100%;
+
+    @include media('<phone-medium') {
+        background-color: transparent;
+    }
     
     .wrapper {}
 
@@ -21,16 +28,25 @@
             
             .symbol {
                 @include flex(center, center, nowrap);
-                width: fluid(20, 30);
-                height: fluid(20, 30);
+                width: fluid(28, 30);
+                height: fluid(28, 30);
                 border-radius: 50%;
                 background-color: $dark;
                 color: $light;
                 line-height: 1;
+
+                @include media('<phone-medium') {
+                    background-color: $light;
+                    color: $dark;
+                }
             }
             
             .content {
-                font-weight: 600;
+                font-weight: 500;
+
+                @include media('<phone-medium') {
+                    color: $light;
+                }
             }
         }
         
@@ -41,7 +57,7 @@
             .menu-item {
                 a {
                     text-transform: uppercase;
-                    font-size: fluid(12, 14);
+                    font-size: fluid(10, 13);
                 }
             }
         }
@@ -71,6 +87,12 @@
             
             @include media('<tablet') {
                 display: flex;
+            }
+
+            &-inner, &-inner::after, &-inner::before {
+                @include media('<phone-medium') {
+                    background-color: $light !important;
+                }
             }
         }
     }

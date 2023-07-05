@@ -1,7 +1,7 @@
 .player-banner {
     position: relative;
     overflow: hidden;
-    height: fluid(150, 300);
+    height: fluid(300, 420);
 
     &::after {
         content: '';
@@ -22,6 +22,10 @@
             object-position: center;
             height: 100%;
             width: 100%;
+
+            @include media('<phone-medium') {
+                object-position: top;
+            }
         }
 
         &::after {
@@ -44,7 +48,7 @@
         gap: fluid(20, 60);
 
         @include media('<tablet') {
-            grid-template-columns: 0.4fr 0.6fr;
+            grid-template-columns: 0.3fr 0.7fr;
         }
     }
 
@@ -53,6 +57,10 @@
         position: relative;
         @include flex(null, flex-end, null);
         z-index: 9;
+
+        @include media('<phone-medium') {
+            display: none;
+        }
         
         .player {
             padding-bottom: fluid(10, 40);
