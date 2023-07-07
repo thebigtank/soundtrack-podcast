@@ -4,7 +4,7 @@
     position: fixed;
     z-index: 99;
     width: 100%;
-    transition: .2s ease-in;
+    transition: .25s ease-in-out;
 
     @include media('<phone-medium') {
         background-color: transparent;
@@ -102,9 +102,19 @@
         background: $light;
         width: 100%;
         height: calc(100vh - 100%);
-        top: 100%;
-        transform: translateX(1000px);
-        transition: .5s ease-in;
+        top: calc(100% - 1px);
+        display: none;
+        transform: translateX(1200px);
+        transition: .5s ease-in-out;
+        overflow: auto;
+
+        @include media('<tablet') {
+            display: block;
+        }
+
+        .wrapper  {
+            overflow-y: auto;
+        }
 
         &-items {
             padding-top: rem(40);
@@ -114,7 +124,11 @@
                 a {
                     display: block;
                     text-transform: capitalize;
-                    font-size: rem(16);
+                    font-size: rem(22);
+
+                    @include media('<phone-medium') {
+                        font-size: rem(16);
+                    }
                 }
             }
         }
@@ -122,9 +136,13 @@
         .auth-links {
             margin-top: rem(40);
             padding: 0 fluid(0, 260);
-            display: flex;
+            display: none;
             flex-direction: column;
             gap: rem(18);
+
+            @include media('<phone-medium') {
+                display: flex;
+            }
 
             .btn {
                 display: block;
