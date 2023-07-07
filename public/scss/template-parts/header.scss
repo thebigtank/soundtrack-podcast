@@ -4,6 +4,7 @@
     position: fixed;
     z-index: 99;
     width: 100%;
+    transition: .2s ease-in;
 
     @include media('<phone-medium') {
         background-color: transparent;
@@ -102,6 +103,8 @@
         width: 100%;
         height: calc(100vh - 100%);
         top: 100%;
+        transform: translateX(1000px);
+        transition: .5s ease-in;
 
         &-items {
             padding-top: rem(40);
@@ -133,6 +136,38 @@
                 background-color: $dark;
                 color: $light;
             }
+        }
+    }
+
+    &.mobile-menu-active {
+
+        @include media('<phone-medium') {
+            background-color: $light;
+
+            .logo {
+                .symbol {
+                    background-color: $dark;
+                    color: $light;
+                }
+
+                .content {
+                    color: $dark;
+                }
+            }
+
+            .hamburger {
+                &-inner,
+                &-inner::after,
+                &-inner::before {
+                    @include media('<phone-medium') {
+                        background-color: $dark !important;
+                    }
+                }
+            }
+        }
+
+        .mobile-menu {
+            transform: translateX(0);
         }
     }
 }
