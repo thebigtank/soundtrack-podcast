@@ -8,8 +8,6 @@
     @include media('<phone-medium') {
         background-color: transparent;
     }
-    
-    .wrapper {}
 
     nav {
         @include flex(space-between, center, wrap);
@@ -93,6 +91,47 @@
                 @include media('<phone-medium') {
                     background-color: $light !important;
                 }
+            }
+        }
+    }
+
+    .mobile-menu {
+        position: absolute;
+        z-index: 9;
+        background: $light;
+        width: 100%;
+        height: calc(100vh - 100%);
+        top: 100%;
+
+        &-items {
+            padding-top: rem(40);
+            text-align: center;
+            .menu-item {
+                margin-bottom: rem(20);
+                a {
+                    display: block;
+                    text-transform: capitalize;
+                    font-size: rem(16);
+                }
+            }
+        }
+
+        .auth-links {
+            margin-top: rem(40);
+            padding: 0 fluid(0, 260);
+            display: flex;
+            flex-direction: column;
+            gap: rem(18);
+
+            .btn {
+                display: block;
+                text-align: center;
+                text-transform: capitalize;
+                border-radius: rem(4);
+                font-size: rem(16);
+                padding: rem(10) rem(28);
+                background-color: $dark;
+                color: $light;
             }
         }
     }
