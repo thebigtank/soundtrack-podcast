@@ -96,26 +96,3 @@ $rem-base: 16px;
 		@return 0;
 	}
 }
-
-// Alias for fluid() with a default max breakpoint of 'desktop-small'
-@function fluid-phone($min-value, $max-value) {
-	@return fluid($min-value, $max-value, "phone-xsmall", "desktop-small");
-}
-
-// Alias for fluid() with a default min breakpoint of 'tablet' and max breakpoint of 'desktop-small'
-@function fluid-tablet($min-value, $max-value) {
-	@return fluid($min-value, $max-value, "tablet", "desktop-small");
-}
-
-// Alias for fluid() with a default min breakpoint of 'desktop-small'
-@function fluid-desktop($min-value, $max-value) {
-	@return fluid($min-value, $max-value, "desktop-small");
-}
-
-@function remaining-side($wrapper-width, $value-only: false) {
-	@if ( $value-only ) {
-		@return calc( ( 1920 - $wrapper-width ) / 2 );
-	} @else {
-		@return calc((100% - #{rem-calc($wrapper-width)}) / 2);
-	}
-}
