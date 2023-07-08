@@ -59,12 +59,12 @@
       </figure>
       <div class="wrapper medium">
         <div class="player-container">
-          <div class="player">
+          <div id="player" class="player">
             <button class="btn play">
               <ion-icon src="/public/assets/icons/play.svg"></ion-icon>
             </button>
             <div class="range">
-              <input type="range" name="" id="">
+              <input type="range" value="50" min="0" max="100" id="range">
               <div class="timestamp">
                 <span class="current timestamp">29:31</span>
                 <span class="total timestamp">58:31</span>
@@ -119,9 +119,9 @@
           </div>
 
           <!-- show this only from phone-medium downwards -->
-          <div class="player">
+          <div id="player" class="player">
             <div class="range">
-              <input type="range" name="" id="">
+              <input type="range" value="50" min="0" max="100" id="range">
               <div class="timestamp">
                 <span class="current timestamp">29:31</span>
                 <span class="total timestamp">58:31</span>

@@ -29,7 +29,7 @@ export function mobileMenu() {
 
       let tl = gsap.timeline({});
       
-      tl.from(menuItems, { autoAlpha: 0, x: 50, stagger: 0.3 }, ">=0.5")
+      tl.from(menuItems, { autoAlpha: 0, y: 50, stagger: 0.3 }, ">=0.5")
         .from(authLinks, { autoAlpha: 0, y: 20, stagger: 0.2 });
     }
   }
