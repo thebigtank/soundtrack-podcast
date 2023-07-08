@@ -57,6 +57,11 @@
                 a {
                     text-transform: uppercase;
                     font-size: fluid(10, 13);
+                    transition: .2s;
+
+                    &:hover {
+                        color: fade-out($orange, 0.2);
+                    }
                 }
             }
         }

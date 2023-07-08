@@ -8,7 +8,7 @@ import { customCursor } from './js/custom-cursor.js'
 document.addEventListener("DOMContentLoaded", function () {
 	mobileMenu();
 	revealNav();
-	siteAnimations();
 	rangeInput();
+	// siteAnimations();
 	// customCursor();
 });
